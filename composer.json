@@ -1,0 +1,41 @@
+{
+  "name": "damianopetrungaro/php-commitizen",
+  "description": "Help writing Git commit following conventional commit specs",
+  "keywords": [
+    "git",
+    "commit",
+    "conventionalcommit",
+    "conventional commit",
+    "atomic commit",
+    "atomic"
+  ],
+  "type": "library",
+  "require": {
+    "roave/security-advisories": "dev-master",
+    "symfony/console": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0",
+    "php-mock/php-mock-prophecy": "^0.0.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Damiano Petrungaro",
+      "email": "damianopetrungaro@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Damianopetrungaro\\PHPCommitizen\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Damianopetrungaro\\PHPCommitizen\\": "tests/Unit"
+    }
+  },
+  "bin": [
+    "bin/php-commitizen"
+  ]
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Damianopetrungaro\PHPCommitizen\CreateConventionalCommit;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+foreach ([__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'] as $autoloadFile) {
+    if (file_exists($autoloadFile)) {
+        require $autoloadFile;
+        break;
+    }
+}
+
+try {
+    $configuration = require __DIR__ . '/../.php-commitizen.php';
+    $app = new Application('PHP Commitizen');
+    $app->add(new \Damianopetrungaro\PHPCommitizen\CommitCommand($configuration, new CreateConventionalCommit()));
+    $app->run();
+} catch (Throwable $e) {
+    (new ConsoleOutput())->writeln("<error>{$e->getMessage()}</error>");
+}
