@@ -11,7 +11,6 @@
   ],
   "type": "library",
   "require": {
-    "roave/security-advisories": "dev-master",
     "symfony/console": "^4.0"
   },
   "require-dev": {
