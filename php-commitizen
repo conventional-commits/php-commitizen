@@ -15,7 +15,7 @@ foreach ([__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', 
 }
 
 try {
-    $configuration = require __DIR__ . '/../.php-commitizen.php';
+    $configuration = require __DIR__ . '/.php-commitizen.php';
     $app = new Application('PHP Commitizen');
     $app->add(new \Damianopetrungaro\PHPCommitizen\CommitCommand($configuration, new CreateConventionalCommit()));
     $app->run();
