@@ -129,12 +129,12 @@ class CommitCommand extends Command
         }
 
         if ($typeValues !== [self::EXTRA_KEY_NAME]) {
-            $choice = new ChoiceQuestion("<question>Select commit's type:</question>", $typeValues);
+            $choice = new ChoiceQuestion("<question>Select commit's type:</question> ", $typeValues);
             $typeInput = $this->questionHelper->ask($input, $output, $choice);
         }
 
         if (!isset($typeInput) || $typeInput === self::EXTRA_KEY_NAME) {
-            $question = new Question("<question>Enter a custom commit's type:</question>", '');
+            $question = new Question("<question>Enter a custom commit's type:</question> ", '');
             $typeInput = $this->questionHelper->ask($input, $output, $question);
         }
 
@@ -156,12 +156,12 @@ class CommitCommand extends Command
         }
 
         if ($scopeValues !== [self::EXTRA_KEY_NAME] && $scopeValues !== []) {
-            $choice = new ChoiceQuestion("<question>Select commit's scope:</question>", $scopeValues);
+            $choice = new ChoiceQuestion("<question>Select commit's scope:</question> ", $scopeValues);
             $scopeInput = $this->questionHelper->ask($input, $output, $choice);
         }
 
         if (!isset($scopeInput) || $scopeInput === self::EXTRA_KEY_NAME) {
-            $question = new Question("<question>Enter a custom commit's scope:</question>", '');
+            $question = new Question("<question>Enter a custom commit's scope:</question> ", '');
             $scopeInput = $this->questionHelper->ask($input, $output, $question);
         }
 
@@ -178,7 +178,7 @@ class CommitCommand extends Command
         $output->writeln('<comment>A description MUST immediately follow the type/scope prefix. The description is a short description of the changes</comment>');
         $output->writeln("<comment>Description length MUST be between {$configuration->minLengthDescription()} and {$configuration->maxLengthDescription()}</comment>");
 
-        $question = new Question("<question>Enter a custom commit's description:</question>", '');
+        $question = new Question("<question>Enter a custom commit's description:</question> ", '');
         $descriptionInput = $this->questionHelper->ask($input, $output, $question);
         return Description::build($descriptionInput, $configuration);
     }
@@ -187,7 +187,7 @@ class CommitCommand extends Command
     {
         $output->writeln('<comment>A longer commit body MAY be provided after the short description.</comment>');
 
-        $question = new Question("<question>Enter commit's body:</question>", '');
+        $question = new Question("<question>Enter commit's body:</question> ", '');
         $bodyInput = $this->questionHelper->ask($input, $output, $question);
         return Body::build($bodyInput, $configuration);
     }
@@ -196,7 +196,7 @@ class CommitCommand extends Command
     {
         $output->writeln('<comment>A footer MAY be provided one blank line after the body. The footer SHOULD contain additional meta-information about the changes(such as the issues it fixes, e.g., fixes #13, #5).</comment>');
 
-        $question = new Question("<question>Enter commit's footer:</question>", '');
+        $question = new Question("<question>Enter commit's footer:</question> ", '');
         $footerInput = $this->questionHelper->ask($input, $output, $question);
         return Footer::build($footerInput, $configuration);
     }
