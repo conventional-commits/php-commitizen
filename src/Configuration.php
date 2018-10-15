@@ -6,196 +6,100 @@ namespace Damianopetrungaro\PHPCommitizen;
 
 class Configuration
 {
-    /**
-     * @var int
-     */
-    private $minLengthType;
+    private $params;
 
-    /**
-     * @var int
-     */
-    private $maxLengthType;
-
-    /**
-     * @var bool
-     */
-    private $acceptExtraType;
-
-    /**
-     * @var array
-     */
-    private $types;
-
-    /**
-     * @var int
-     */
-    private $minLengthScope;
-
-    /**
-     * @var int
-     */
-    private $maxLengthScope;
-
-    /**
-     * @var bool
-     */
-    private $acceptExtraScope;
-
-    /**
-     * @var array
-     */
-    private $scopes;
-
-    /**
-     * @var int
-     */
-    private $minLengthDescription;
-
-    /**
-     * @var int
-     */
-    private $maxLengthDescription;
-
-    /**
-     * @var int
-     */
-    private $minLengthSubject;
-
-    /**
-     * @var int
-     */
-    private $maxLengthSubject;
-
-    /**
-     * @var int
-     */
-    private $wrapWidthBody;
-
-    /**
-     * @var int
-     */
-    private $wrapWidthFooter;
-
-    private function __construct(
-        int $minLengthType,
-        int $maxLengthType,
-        bool $acceptExtraType,
-        array $types,
-        int $minLengthScope,
-        int $maxLengthScope,
-        bool $acceptExtraScope,
-        array $scopes,
-        int $minLengthDescription,
-        int $maxLengthDescription,
-        int $minLengthSubject,
-        int $maxLengthSubject,
-        int $wrapWidthBody,
-        int $wrapWidthFooter
-    )
+    private function __construct(array $params)
     {
-        $this->minLengthType = $minLengthType;
-        $this->maxLengthType = $maxLengthType;
-        $this->acceptExtraType = $acceptExtraType;
-        $this->types = $types;
-        $this->minLengthScope = $minLengthScope;
-        $this->maxLengthScope = $maxLengthScope;
-        $this->acceptExtraScope = $acceptExtraScope;
-        $this->scopes = $scopes;
-        $this->minLengthDescription = $minLengthDescription;
-        $this->maxLengthDescription = $maxLengthDescription;
-        $this->minLengthSubject = $minLengthSubject;
-        $this->maxLengthSubject = $maxLengthSubject;
-        $this->wrapWidthBody = $wrapWidthBody;
-        $this->wrapWidthFooter = $wrapWidthFooter;
+        $this->params = $params;
     }
 
-    public static function fromArray(array $configuration): self
+    public static function fromArray(array $conf): self
     {
-        return new self(
-            $configuration['type']['lengthMin'],
-            $configuration['type']['lengthMax'],
-            $configuration['type']['acceptExtra'],
-            $configuration['type']['values'],
-            $configuration['scope']['lengthMin'],
-            $configuration['scope']['lengthMax'],
-            $configuration['scope']['acceptExtra'],
-            $configuration['scope']['values'],
-            $configuration['description']['lengthMin'],
-            $configuration['description']['lengthMax'],
-            $configuration['subject']['lengthMin'],
-            $configuration['subject']['lengthMax'],
-            $configuration['body']['wrap'],
-            $configuration['footer']['wrap']
-        );
+        return new self([
+            'minLengthType'        => $conf['type']['lengthMin'],
+            'maxLengthType'        => $conf['type']['lengthMax'],
+            'acceptExtraType'      => $conf['type']['acceptExtra'],
+            'types'                => $conf['type']['values'],
+            'minLengthScope'       => $conf['scope']['lengthMin'],
+            'maxLengthScope'       => $conf['scope']['lengthMax'],
+            'acceptExtraScope'     => $conf['scope']['acceptExtra'],
+            'scopes'               => $conf['scope']['values'],
+            'minLengthDescription' => $conf['description']['lengthMin'],
+            'maxLengthDescription' => $conf['description']['lengthMax'],
+            'minLengthSubject'     => $conf['subject']['lengthMin'],
+            'maxLengthSubject'     => $conf['subject']['lengthMax'],
+            'wrapWidthBody'        => $conf['body']['wrap'],
+            'wrapWidthFooter'      => $conf['footer']['wrap'],
+        ]);
     }
 
     public function minLengthType(): int
     {
-        return $this->minLengthType;
+        return $this->params['minLengthType'];
     }
 
     public function maxLengthType(): int
     {
-        return $this->maxLengthType;
+        return $this->params['maxLengthType'];
     }
 
     public function acceptExtraType(): bool
     {
-        return $this->acceptExtraType;
+        return $this->params['acceptExtraType'];
     }
 
     public function types(): array
     {
-        return $this->types;
+        return $this->params['types'];
     }
 
     public function minLengthScope(): int
     {
-        return $this->minLengthScope;
+        return $this->params['minLengthScope'];
     }
 
     public function maxLengthScope(): int
     {
-        return $this->maxLengthScope;
+        return $this->params['maxLengthScope'];
     }
 
     public function acceptExtraScope(): bool
     {
-        return $this->acceptExtraScope;
+        return $this->params['acceptExtraScope'];
     }
 
     public function scopes(): array
     {
-        return $this->scopes;
+        return $this->params['scopes'];
     }
 
     public function minLengthDescription(): int
     {
-        return $this->minLengthDescription;
+        return $this->params['minLengthDescription'];
     }
 
     public function maxLengthDescription(): int
     {
-        return $this->maxLengthDescription;
+        return $this->params['maxLengthDescription'];
     }
 
     public function minLengthSubject(): int
     {
-        return $this->minLengthSubject;
+        return $this->params['minLengthSubject'];
     }
 
     public function maxLengthSubject(): int
     {
-        return $this->maxLengthSubject;
+        return $this->params['maxLengthSubject'];
     }
 
     public function wrapWidthBody(): int
     {
-        return $this->wrapWidthBody;
+        return $this->params['wrapWidthBody'];
     }
 
     public function wrapWidthFooter(): int
     {
-        return $this->wrapWidthFooter;
+        return $this->params['wrapWidthFooter'];
     }
 }
