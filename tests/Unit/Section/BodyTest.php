@@ -6,9 +6,12 @@ namespace Damianopetrungaro\PHPCommitizen\Section;
 
 use Damianopetrungaro\PHPCommitizen\Configuration;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class BodyTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @dataProvider bodyDataProvider
      */

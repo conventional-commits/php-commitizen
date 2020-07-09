@@ -7,9 +7,12 @@ namespace Damianopetrungaro\PHPCommitizen\Section;
 use Damianopetrungaro\PHPCommitizen\Configuration;
 use Damianopetrungaro\PHPCommitizen\Exception\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class DescriptionTest extends TestCase
 {
+    use ProphecyTrait;
+
     /**
      * @dataProvider descriptionDataProvider
      */

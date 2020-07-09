@@ -10,11 +10,14 @@ use Damianopetrungaro\PHPCommitizen\Section\Footer;
 use Damianopetrungaro\PHPCommitizen\Section\Subject;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
 final class CommitCommandTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testCustomConfigurationFileNotFound(): void
     {
         $this->expectException(InvalidArgumentException::class);
