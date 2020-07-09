@@ -11,7 +11,7 @@
   ],
   "type": "library",
   "require": {
-    "symfony/console": "^4.0"
+    "symfony/console": "^4 || ^5"
   },
   "require-dev": {
     "phpunit/phpunit": "^9",

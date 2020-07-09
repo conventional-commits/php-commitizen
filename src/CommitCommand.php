@@ -94,8 +94,12 @@ class CommitCommand extends Command
             $footer = $this->createFooter($input, $output, $configuration);
             $addAll = $input->getOption(self::OPTION_ADD_FILE_TO_STAGE_NAME);
             ($this->createConventionalCommit)($subject, $body, $footer, $addAll);
+
+            return 0;
         } catch (InvalidArgumentException $e) {
             $output->writeln("<error>{$e->getMessage()}</error>");
+
+            return 1;
         }
     }
 
