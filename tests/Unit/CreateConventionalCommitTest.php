@@ -8,9 +8,12 @@ use Damianopetrungaro\PHPCommitizen\Section\Body;
 use Damianopetrungaro\PHPCommitizen\Section\Footer;
 use Damianopetrungaro\PHPCommitizen\Section\Subject;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class CreateConventionalCommitTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testCreateConventionalCommit(): void
     {
         $createConventionalCommit = $this->createPartialMock(CreateConventionalCommit::class, ['exec']);
