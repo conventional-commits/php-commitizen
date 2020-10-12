@@ -41,7 +41,7 @@ final class CreateConventionalCommitTest extends TestCase
             ->expects($this->exactly(2))
             ->method('exec')
             ->withConsecutive(
-                [$this->equalTo('git add .')],
+                [$this->equalTo('git add -A')],
                 [$this->equalTo("git commit -m 'subject' -m 'body' -m 'footer'")]
             );
 
