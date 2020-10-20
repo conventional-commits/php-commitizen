@@ -119,7 +119,7 @@ class CommitCommand extends Command
             throw new InvalidArgumentException('Custom configuration file must return an array');
         }
 
-        return Configuration::fromArray(array_merge($this->configuration, $customConfiguration));
+        return Configuration::fromArray(array_merge_recursive($this->configuration, $customConfiguration));
     }
 
     private function createType(InputInterface $input, OutputInterface $output, Configuration $configuration): Type
