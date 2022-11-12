@@ -15,7 +15,7 @@ class CreateConventionalCommit
     public function __invoke(Subject $subject, Body $body, Footer $footer, bool $addAllToStage): void
     {
         if ($addAllToStage) {
-            $this->exec('git add .');
+            $this->exec('git add -A');
         }
 
         $safeSubject = escapeshellarg((string)$subject);
